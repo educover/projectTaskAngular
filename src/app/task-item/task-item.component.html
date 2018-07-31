@@ -1,0 +1,13 @@
+<div class="taskItem {{data.completed ? 'completed' : ''}}" ngDraggable id="{{data.taskId}}">
+    <button (click)="onRemoveTask()">X</button>
+    <div class="taskText" (click)="editText()" *ngIf="!editing">
+      {{data.text}}
+  
+    </div>
+    <input *ngIf="editing" [(ngModel)]="data.text" (keyup.enter)="saveText()">
+    <input type="checkbox" id="check" [(ngModel)]="data.completed" (change)="oncompleted()">
+    <div class="colores">
+      <span [style.background]="data.color" [cpPresetColors]="['#0b0b0b','#616161','#959595','#969696','#cccccc','#FFFFFF']"
+        [(colorPicker)]="data.color" (colorPickerClose)="dataService.save()"> </span>
+    </div>
+  </div>

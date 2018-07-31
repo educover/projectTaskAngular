@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header class="addList">
+  <input type="text" [(ngModel)]="addListText" (keyup.enter)="onsaveNewList()">
+  <button (click)="onsaveNewList()">add new list</button>
+</header>
+<section>
+
+    <div class="lists">
+        
+        <list [data]="list" *ngFor="let list of lists"></list>
+    </div>
+
+</section>
